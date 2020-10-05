@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "xray-webhook-2-slack-example.fullname" . }}-test-connection"
+  labels:
+{{ include "xray-webhook-2-slack-example.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "xray-webhook-2-slack-example.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
