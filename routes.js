@@ -64,6 +64,11 @@ var routes = function(app) {
           // You can add more fields as the data from Xray contains more information
           fields: [
             {
+              title: "Artifact Path",
+              value: payload.issues[0].impacted_artifacts[0].path + payload.issues[0].impacted_artifacts[0].name,
+              short: true
+            },
+            {
               title: "Type",
               value: payload.issues[0].type,
               short: true
@@ -86,16 +91,6 @@ var routes = function(app) {
             {
               title: "Summary",
               value: payload.issues[0].summary
-            },
-            {
-              title: "Artifact Path",
-              value: payload.issues[0].impacted_artifacts[0].path,
-              short: true
-            },
-            {
-              title: "Artifact Name",
-              value: payload.issues[0].impacted_artifacts[0].name,
-              short: true
             }
           ]
         }
