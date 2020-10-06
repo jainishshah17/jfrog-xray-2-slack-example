@@ -86,6 +86,16 @@ var routes = function(app) {
             {
               title: "Summary",
               value: payload.issues[0].summary
+            },
+            {
+              title: "Artifact Path",
+              value: payload.issues[0].impacted_artifacts[0].path,
+              short: true
+            },
+            {
+              title: "Artifact Name",
+              value: payload.issues[0].impacted_artifacts[0].name,
+              short: true
             }
           ]
         }
